@@ -17,7 +17,6 @@ vector<Mat> WeChatQRCode::detectNew(InputArray img) {
     auto points = vector<Mat>();
 
     if (img.cols() <= 20 || img.rows() <= 20) {
-        // return vector<string>();  // image data is not enough for providing reliable results
         return points;
     }
     Mat input_img;
