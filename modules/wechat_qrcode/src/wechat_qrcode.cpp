@@ -214,7 +214,7 @@ vector<Mat> WeChatQRCode::Impl::detect(const Mat& img) {
     return points;
 }
 
-vector<Mat> WeChatQRCode::detectNew(const Mat& img) {
+vector<Mat> WeChatQRCode::detectNew(InputArray img) {
     CV_Assert(!img.empty());
     CV_CheckDepthEQ(img.depth(), CV_8U, "");
 

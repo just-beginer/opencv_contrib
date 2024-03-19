@@ -72,7 +72,7 @@ public:
      * @param img supports grayscale or color (BGR) image.
      * @return vector<Mat> detected QR code bounding boxes.
      */
-    CV_WRAP std::vector<Mat> detectNew(const Mat& img);
+    CV_WRAP std::vector<Mat> detectNew(InputArray img);
 
 protected:
     class Impl;
