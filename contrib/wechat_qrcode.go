@@ -62,3 +62,20 @@ func toGoStrings(strs C.CStrings) []string {
 	}
 	return gostrings
 }
+
+func (wq *WeChatQRCode) DetectNew(img gocv.Mat) []gocv.Mat  {
+	cMats := C.struct_Mats{}
+	defer C.WeChatQRCode_Mats_Close(cMats)
+
+
+	C.WeChatQRCode_DetectNew((C.WeChatQRCode)(wq.p), (C.Mat)(img.Ptr()), &(cMats))
+
+
+	ps := make([]gocv.Mat, cMats.length)
+	for i := C.int(0); i < cMats.length; i++ {
+		ps[i] = gocv.NewMat()
+		C.WeChatQRCode_Mats_to(cMats, i, (C.Mat)(ps[i].Ptr()))
+	}
+
+	return ps
+}

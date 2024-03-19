@@ -53,3 +53,16 @@ CStrings WeChatQRCode_DetectAndDecode(WeChatQRCode wq, Mat img, struct Mats *poi
     (&results)->strs = decodes;
     return results;
 }
+
+Mats WeChatQRCode_DetectNew(WeChatQRCode wq, Mat img, struct Mats *points) {
+    std::vector <cv::Mat> Points = ((*wq)->detectNew(*img));
+    if ((int) Points.size() > 0) {
+        points->mats = new Mat[Points.size()];
+        for (size_t i = 0; i < Points.size(); ++i) {
+            points->mats[i] = new cv::Mat(Points[i]);
+        }
+        points->length = (int) Points.size();
+    }
+
+    return *points;
+}

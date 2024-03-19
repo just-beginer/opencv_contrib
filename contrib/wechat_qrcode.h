@@ -26,6 +26,7 @@ StringsVector NewStringsVector();
 void WeChatQRCode_CStrings_Close(struct CStrings cstrs);
 void WeChatQRCode_Mats_Close(struct Mats mats);
 void WeChatQRCode_Mats_to(struct Mats mats, int i, Mat dst);
+Mats WeChatQRCode_DetectNew(WeChatQRCode wq, Mat img, struct Mats *points);
 
 
 #ifdef __cplusplus
