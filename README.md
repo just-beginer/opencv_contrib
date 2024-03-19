@@ -1,4 +1,4 @@
-## opencv_contrib
+WeChatQrCode添加单独返回二维码的位置信息函数
 
 opencv wechat_qrcode模块只支持识别qrcode, 不能识别datamatrix类型的二维码
 
