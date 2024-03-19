@@ -66,6 +66,14 @@ public:
 
     CV_WRAP float getScaleFactor();
 
+    /**
+     * @brief detect QR codes from the given image
+     *
+     * @param img supports grayscale or color (BGR) image.
+     * @return vector<Mat> detected QR code bounding boxes.
+     */
+    CV_WRAP std::vector<Mat> detectNew(const Mat& img);
+
 protected:
     class Impl;
     Ptr<Impl> p;
