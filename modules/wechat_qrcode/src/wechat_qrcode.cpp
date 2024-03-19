@@ -218,8 +218,11 @@ vector<Mat> WeChatQRCode::detectNew(InputArray img) {
     CV_Assert(!img.empty());
     CV_CheckDepthEQ(img.depth(), CV_8U, "");
 
+    auto points = vector<Mat>();
+
     if (img.cols() <= 20 || img.rows() <= 20) {
-        return vector<string>();  // image data is not enough for providing reliable results
+        // return vector<string>();  // image data is not enough for providing reliable results
+        return points;
     }
     Mat input_img;
     int incn = img.channels();
@@ -229,9 +232,7 @@ vector<Mat> WeChatQRCode::detectNew(InputArray img) {
     } else {
         input_img = img.getMat();
     }
-    auto candidate_points = p->detect(input_img);
-
-    return candidate_points;
+    return p->detect(input_img);
 }
 
 int WeChatQRCode::Impl::applyDetector(const Mat& img, vector<Mat>& points) {
