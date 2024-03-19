@@ -215,7 +215,7 @@ vector<Mat> WeChatQRCode::Impl::detect(const Mat& img) {
 }
 
 vector<Mat> WeChatQRCode::detectNew(const Mat& img) {
-    return p->detect(img)
+    return p->detect(img);
 }
 
 int WeChatQRCode::Impl::applyDetector(const Mat& img, vector<Mat>& points) {
